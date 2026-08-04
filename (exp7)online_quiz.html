@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Online Quiz Application</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#4A00E0,#8E2DE2);
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:20px;
+}
+
+.container{
+
+width:800px;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+}
+
+h1{
+
+text-align:center;
+color:#4A00E0;
+margin-bottom:25px;
+
+}
+
+.card{
+
+background:#F4F6F9;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+box-shadow:0 5px 10px rgba(0,0,0,.1);
+
+}
+
+.question{
+
+font-size:20px;
+font-weight:bold;
+margin-bottom:15px;
+
+}
+
+label{
+
+display:block;
+padding:8px;
+font-size:17px;
+cursor:pointer;
+
+}
+
+button{
+
+display:block;
+margin:20px auto;
+padding:12px 30px;
+font-size:18px;
+background:#4A00E0;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#311B92;
+
+}
+
+#result{
+
+margin-top:20px;
+font-size:22px;
+font-weight:bold;
+text-align:center;
+color:green;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Online Quiz Application</h1>
+
+<form id="quizForm"></form>
+
+<button onclick="calculateScore()">Submit Quiz</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+const quiz=[
+
+{
+question:"1. HTML stands for?",
+options:[
+"Hyper Text Markup Language",
+"High Text Machine Language",
+"Home Tool Markup Language",
+"Hyper Transfer Markup Language"
+],
+answer:0
+},
+
+{
+question:"2. Which language is used for styling webpages?",
+options:[
+"HTML",
+"Java",
+"CSS",
+"Python"
+],
+answer:2
+},
+
+{
+question:"3. Which language is used for webpage interactivity?",
+options:[
+"C",
+"JavaScript",
+"PHP",
+"SQL"
+],
+answer:1
+},
+
+{
+question:"4. Which HTML tag is used to create a hyperlink?",
+options:[
+"<img>",
+"<a>",
+"<table>",
+"<div>"
+],
+answer:1
+},
+
+{
+question:"5. Which CSS property changes text color?",
+options:[
+"background",
+"font-size",
+"color",
+"border"
+],
+answer:2
+}
+
+];
+
+const form=document.getElementById("quizForm");
+
+quiz.forEach((q,index)=>{
+
+let card=document.createElement("div");
+card.className="card";
+
+let html=`<div class="question">${q.question}</div>`;
+
+q.options.forEach((option,i)=>{
+
+html+=`
+<label>
+<input type="radio" name="q${index}" value="${i}">
+${option}
+</label>
+`;
+
+});
+
+card.innerHTML=html;
+
+form.appendChild(card);
+
+});
+
+function calculateScore(){
+
+let score=0;
+
+quiz.forEach((q,index)=>{
+
+let answer=document.querySelector(`input[name="q${index}"]:checked`);
+
+if(answer){
+
+if(Number(answer.value)===q.answer){
+
+score++;
+
+}
+
+}
+
+});
+
+let percentage=(score/quiz.length)*100;
+
+let grade="";
+
+if(percentage>=90)
+
+grade="A+";
+
+else if(percentage>=80)
+
+grade="A";
+
+else if(percentage>=70)
+
+grade="B";
+
+else if(percentage>=60)
+
+grade="C";
+
+else if(percentage>=50)
+
+grade="D";
+
+else
+
+grade="F";
+
+document.getElementById("result").innerHTML=
+
+`
+Your Score : ${score} / ${quiz.length}<br>
+Percentage : ${percentage}%<br>
+Grade : ${grade}
+`;
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Result Analysis System</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#1D976C,#93F9B9);
+padding:30px;
+}
+
+.container{
+width:900px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.3);
+}
+
+h1{
+text-align:center;
+color:#00695C;
+margin-bottom:20px;
+}
+
+form{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+input{
+padding:12px;
+border:2px solid #009688;
+border-radius:8px;
+font-size:16px;
+}
+
+button{
+grid-column:span 2;
+padding:12px;
+background:#009688;
+color:white;
+font-size:18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+button:hover{
+background:#00695C;
+}
+
+table{
+width:100%;
+margin-top:30px;
+border-collapse:collapse;
+}
+
+th{
+background:#009688;
+color:white;
+padding:12px;
+}
+
+td{
+padding:10px;
+text-align:center;
+border:1px solid #ddd;
+}
+
+tr:nth-child(even){
+background:#f5f5f5;
+}
+
+.summary{
+margin-top:20px;
+background:#E0F2F1;
+padding:15px;
+border-radius:10px;
+font-size:18px;
+line-height:1.8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Student Result Analysis System</h1>
+
+<form>
+
+<input type="text" id="name" placeholder="Student Name">
+
+<input type="number" id="m1" placeholder="Web Technology">
+
+<input type="number" id="m2" placeholder="Java">
+
+<input type="number" id="m3" placeholder="Python">
+
+<input type="number" id="m4" placeholder="DBMS">
+
+<input type="number" id="m5" placeholder="Computer Networks">
+
+<button type="button" onclick="analyzeResult()">Analyze Result</button>
+
+</form>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function analyzeResult(){
+
+let student={
+name:document.getElementById("name").value,
+marks:[
+Number(document.getElementById("m1").value),
+Number(document.getElementById("m2").value),
+Number(document.getElementById("m3").value),
+Number(document.getElementById("m4").value),
+Number(document.getElementById("m5").value)
+]
+};
+
+let total=0;
+
+for(let i=0;i<student.marks.length;i++){
+total+=student.marks[i];
+}
+
+let average=(total/student.marks.length).toFixed(2);
+
+let highest=Math.max(...student.marks);
+
+let lowest=Math.min(...student.marks);
+
+let result;
+
+if(average>=50)
+result="PASS";
+else
+result="FAIL";
+
+let grade;
+
+if(average>=90)
+grade="A+";
+else if(average>=80)
+grade="A";
+else if(average>=70)
+grade="B";
+else if(average>=60)
+grade="C";
+else if(average>=50)
+grade="D";
+else
+grade="F";
+
+document.getElementById("result").innerHTML=`
+
+<table>
+
+<tr>
+<th>Name</th>
+<th>Total</th>
+<th>Average</th>
+<th>Highest</th>
+<th>Lowest</th>
+<th>Grade</th>
+<th>Result</th>
+</tr>
+
+<tr>
+
+<td>${student.name}</td>
+
+<td>${total}</td>
+
+<td>${average}</td>
+
+<td>${highest}</td>
+
+<td>${lowest}</td>
+
+<td>${grade}</td>
+
+<td>${result}</td>
+
+</tr>
+
+</table>
+
+<div class="summary">
+
+<b>Summary</b><br>
+
+Highest Mark : ${highest}<br>
+
+Lowest Mark : ${lowest}<br>
+
+Average : ${average}<br>
+
+Grade : ${grade}<br>
+
+Result : ${result}
+
+</div>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>

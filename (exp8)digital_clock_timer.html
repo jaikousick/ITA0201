@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Digital Clock & Exam Countdown</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#141E30,#243B55);
+}
+
+.container{
+
+width:700px;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+text-align:center;
+
+}
+
+h1{
+
+color:#0D47A1;
+margin-bottom:25px;
+
+}
+
+.clock{
+
+font-size:45px;
+font-weight:bold;
+color:#1565C0;
+margin-bottom:20px;
+
+}
+
+.date{
+
+font-size:20px;
+margin-bottom:25px;
+color:#555;
+
+}
+
+.timer{
+
+background:#E3F2FD;
+padding:25px;
+border-radius:15px;
+
+}
+
+.timer h2{
+
+color:#D32F2F;
+margin-bottom:15px;
+
+}
+
+#countdown{
+
+font-size:35px;
+font-weight:bold;
+color:#2E7D32;
+
+}
+
+.footer{
+
+margin-top:20px;
+font-size:18px;
+color:#666;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Digital Clock & Examination Countdown</h1>
+
+<div class="clock" id="clock"></div>
+
+<div class="date" id="today"></div>
+
+<div class="timer">
+
+<h2>Exam Countdown Timer</h2>
+
+<div id="countdown"></div>
+
+</div>
+
+<div class="footer">
+
+Web Technology Laboratory
+
+</div>
+
+</div>
+
+<script>
+
+function updateClock(){
+
+let now=new Date();
+
+let time=now.toLocaleTimeString();
+
+let date=now.toDateString();
+
+document.getElementById("clock").innerHTML=time;
+
+document.getElementById("today").innerHTML=date;
+
+}
+
+function countdown(){
+
+// Set your exam date here
+
+let examDate=new Date("December 31, 2026 09:00:00").getTime();
+
+let now=new Date().getTime();
+
+let distance=examDate-now;
+
+if(distance<0){
+
+document.getElementById("countdown").innerHTML="Exam Started!";
+
+return;
+
+}
+
+let days=Math.floor(distance/(1000*60*60*24));
+
+let hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+let minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+
+let seconds=Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML=
+
+days+" Days : "+hours+" Hours : "+minutes+" Minutes : "+seconds+" Seconds";
+
+}
+
+setInterval(function(){
+
+updateClock();
+
+countdown();
+
+},1000);
+
+updateClock();
+
+countdown();
+
+</script>
+
+</body>
+</html>

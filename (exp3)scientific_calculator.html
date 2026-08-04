@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Scientific Calculator</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#0F2027,#203A43,#2C5364);
+}
+
+.calculator{
+
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+width:380px;
+
+}
+
+h2{
+text-align:center;
+margin-bottom:20px;
+color:#2C5364;
+}
+
+#display{
+
+width:100%;
+height:60px;
+font-size:28px;
+text-align:right;
+padding:10px;
+border:2px solid #2C5364;
+border-radius:10px;
+margin-bottom:20px;
+
+}
+
+.buttons{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+
+}
+
+button{
+
+padding:18px;
+font-size:20px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+background:#4CAF50;
+color:white;
+transition:.3s;
+
+}
+
+button:hover{
+
+background:#2E7D32;
+transform:scale(1.05);
+
+}
+
+.operator{
+
+background:#FF9800;
+
+}
+
+.operator:hover{
+
+background:#EF6C00;
+
+}
+
+.equal{
+
+background:#2196F3;
+
+}
+
+.equal:hover{
+
+background:#1565C0;
+
+}
+
+.clear{
+
+background:#F44336;
+
+}
+
+.clear:hover{
+
+background:#C62828;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="calculator">
+
+<h2>Scientific Calculator</h2>
+
+<input type="text" id="display" readonly>
+
+<div class="buttons">
+
+<button onclick="clearDisplay()" class="clear">C</button>
+<button onclick="deleteLast()">⌫</button>
+<button onclick="append('%')">%</button>
+<button onclick="append('/')" class="operator">÷</button>
+
+<button onclick="append('7')">7</button>
+<button onclick="append('8')">8</button>
+<button onclick="append('9')">9</button>
+<button onclick="append('*')" class="operator">×</button>
+
+<button onclick="append('4')">4</button>
+<button onclick="append('5')">5</button>
+<button onclick="append('6')">6</button>
+<button onclick="append('-')" class="operator">-</button>
+
+<button onclick="append('1')">1</button>
+<button onclick="append('2')">2</button>
+<button onclick="append('3')">3</button>
+<button onclick="append('+')" class="operator">+</button>
+
+<button onclick="append('0')">0</button>
+<button onclick="append('.')">.</button>
+<button onclick="calculate()" class="equal">=</button>
+<button onclick="square()">x²</button>
+
+<button onclick="squareRoot()">√</button>
+<button onclick="power()">xʸ</button>
+<button onclick="append('(')">(</button>
+<button onclick="append(')')">)</button>
+
+</div>
+
+</div>
+
+<script>
+
+let display=document.getElementById("display");
+
+function append(value){
+
+display.value+=value;
+
+}
+
+function clearDisplay(){
+
+display.value="";
+
+}
+
+function deleteLast(){
+
+display.value=display.value.slice(0,-1);
+
+}
+
+function calculate(){
+
+try{
+
+display.value=eval(display.value);
+
+}
+
+catch{
+
+display.value="Error";
+
+}
+
+}
+
+function square(){
+
+display.value=Math.pow(Number(display.value),2);
+
+}
+
+function squareRoot(){
+
+display.value=Math.sqrt(Number(display.value));
+
+}
+
+function power(){
+
+let base=prompt("Enter Base");
+
+let exponent=prompt("Enter Exponent");
+
+display.value=Math.pow(base,exponent);
+
+}
+
+</script>
+
+</body>
+</html>

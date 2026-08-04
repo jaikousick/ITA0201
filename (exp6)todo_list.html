@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic To-Do List</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#4facfe,#00f2fe);
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
+
+.container{
+
+width:700px;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.3);
+
+}
+
+h1{
+
+text-align:center;
+color:#1565C0;
+margin-bottom:25px;
+
+}
+
+.input-box{
+
+display:flex;
+gap:10px;
+margin-bottom:20px;
+
+}
+
+input{
+
+flex:1;
+padding:12px;
+font-size:16px;
+border:2px solid #1565C0;
+border-radius:10px;
+
+}
+
+button{
+
+padding:12px 18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+color:white;
+font-size:15px;
+transition:.3s;
+
+}
+
+.add{
+
+background:#28A745;
+
+}
+
+.add:hover{
+
+background:#1E7E34;
+
+}
+
+table{
+
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+
+}
+
+th{
+
+background:#1565C0;
+color:white;
+padding:12px;
+
+}
+
+td{
+
+padding:12px;
+border-bottom:1px solid #ddd;
+text-align:center;
+
+}
+
+.edit{
+
+background:#FFC107;
+color:black;
+
+}
+
+.delete{
+
+background:#DC3545;
+
+}
+
+.edit:hover{
+
+background:#E0A800;
+
+}
+
+.delete:hover{
+
+background:#C82333;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Dynamic To-Do List</h1>
+
+<div class="input-box">
+
+<input type="text" id="task" placeholder="Enter your task">
+
+<button class="add" id="addBtn">Add Task</button>
+
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Task</th>
+
+<th>Edit</th>
+
+<th>Delete</th>
+
+</tr>
+
+</thead>
+
+<tbody id="taskList">
+
+</tbody>
+
+</table>
+
+</div>
+
+<script>
+
+let tasks=[];
+
+document.getElementById("addBtn").addEventListener("click",addTask);
+
+function addTask(){
+
+let input=document.getElementById("task");
+
+let text=input.value.trim();
+
+if(text===""){
+
+alert("Please enter a task");
+
+return;
+
+}
+
+let taskObj={
+
+task:text
+
+};
+
+tasks.push(taskObj);
+
+input.value="";
+
+displayTasks();
+
+}
+
+function displayTasks(){
+
+let list=document.getElementById("taskList");
+
+list.innerHTML="";
+
+tasks.forEach(function(item,index){
+
+list.innerHTML+=`
+
+<tr>
+
+<td>${item.task}</td>
+
+<td>
+
+<button class="edit" onclick="editTask(${index})">
+
+Edit
+
+</button>
+
+</td>
+
+<td>
+
+<button class="delete" onclick="deleteTask(${index})">
+
+Delete
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+function editTask(index){
+
+let newTask=prompt("Edit Task",tasks[index].task);
+
+if(newTask!=null && newTask.trim()!=""){
+
+tasks[index].task=newTask;
+
+displayTasks();
+
+}
+
+}
+
+function deleteTask(index){
+
+if(confirm("Delete this task?")){
+
+tasks.splice(index,1);
+
+displayTasks();
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

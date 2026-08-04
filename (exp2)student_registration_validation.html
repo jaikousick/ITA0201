@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration Form with Validation</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#6A11CB,#2575FC);
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:30px;
+}
+
+.container{
+width:500px;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+h2{
+text-align:center;
+color:#2575FC;
+margin-bottom:25px;
+}
+
+label{
+font-weight:bold;
+display:block;
+margin-top:15px;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:10px;
+margin-top:5px;
+border:2px solid #ddd;
+border-radius:8px;
+font-size:15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+border-color:#2575FC;
+outline:none;
+}
+
+.gender{
+margin-top:10px;
+}
+
+.gender input{
+width:auto;
+}
+
+button{
+width:48%;
+padding:12px;
+margin-top:20px;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+color:white;
+}
+
+.submit{
+background:#28A745;
+}
+
+.reset{
+background:#DC3545;
+float:right;
+}
+
+button:hover{
+opacity:.9;
+}
+
+#message{
+margin-top:20px;
+text-align:center;
+font-weight:bold;
+font-size:18px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Student Registration Form</h2>
+
+<form id="studentForm">
+
+<label>Student Name</label>
+<input type="text" id="name">
+
+<label>Register Number</label>
+<input type="text" id="regno">
+
+<label>Email</label>
+<input type="email" id="email">
+
+<label>Mobile Number</label>
+<input type="text" id="mobile">
+
+<label>Date of Birth</label>
+<input type="date" id="dob">
+
+<label>Gender</label>
+
+<div class="gender">
+<input type="radio" name="gender" value="Male"> Male
+<input type="radio" name="gender" value="Female"> Female
+</div>
+
+<label>Department</label>
+
+<select id="department">
+<option value="">Select Department</option>
+<option>CSE</option>
+<option>IT</option>
+<option>AI&DS</option>
+<option>ECE</option>
+<option>EEE</option>
+</select>
+
+<label>Address</label>
+
+<textarea id="address" rows="4"></textarea>
+
+<button type="button" class="submit" onclick="validateForm()">Register</button>
+
+<button type="reset" class="reset">Reset</button>
+
+<p id="message"></p>
+
+</form>
+
+</div>
+
+<script>
+
+function validateForm(){
+
+let name=document.getElementById("name").value.trim();
+let regno=document.getElementById("regno").value.trim();
+let email=document.getElementById("email").value.trim();
+let mobile=document.getElementById("mobile").value.trim();
+let dob=document.getElementById("dob").value;
+let department=document.getElementById("department").value;
+let address=document.getElementById("address").value.trim();
+
+let gender=document.querySelector('input[name="gender"]:checked');
+
+let message=document.getElementById("message");
+
+let namePattern=/^[A-Za-z ]{3,30}$/;
+let regPattern=/^[0-9]{6,12}$/;
+let emailPattern=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+let mobilePattern=/^[6-9][0-9]{9}$/;
+
+if(name==""){
+message.innerHTML="Enter Student Name";
+message.style.color="red";
+return;
+}
+
+if(!namePattern.test(name)){
+message.innerHTML="Invalid Name";
+message.style.color="red";
+return;
+}
+
+if(!regPattern.test(regno)){
+message.innerHTML="Invalid Register Number";
+message.style.color="red";
+return;
+}
+
+if(!emailPattern.test(email)){
+message.innerHTML="Invalid Email";
+message.style.color="red";
+return;
+}
+
+if(!mobilePattern.test(mobile)){
+message.innerHTML="Invalid Mobile Number";
+message.style.color="red";
+return;
+}
+
+if(dob==""){
+message.innerHTML="Select Date of Birth";
+message.style.color="red";
+return;
+}
+
+if(gender==null){
+message.innerHTML="Select Gender";
+message.style.color="red";
+return;
+}
+
+if(department==""){
+message.innerHTML="Select Department";
+message.style.color="red";
+return;
+}
+
+if(address==""){
+message.innerHTML="Enter Address";
+message.style.color="red";
+return;
+}
+
+message.innerHTML="🎉 Student Registered Successfully!";
+message.style.color="green";
+
+}
+
+</script>
+
+</body>
+</html>
