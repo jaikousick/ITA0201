@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Responsive Student Profile</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#4A00E0,#8E2DE2);
+padding:40px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.header{
+background:linear-gradient(90deg,#00C9FF,#92FE9D);
+text-align:center;
+padding:30px;
+}
+
+.header img{
+width:160px;
+height:160px;
+border-radius:50%;
+border:5px solid white;
+margin-bottom:15px;
+}
+
+.header h1{
+color:#003366;
+}
+
+.header p{
+color:#333;
+font-size:18px;
+}
+
+.content{
+display:flex;
+gap:20px;
+padding:30px;
+}
+
+.left{
+flex:1;
+background:#F5F7FA;
+padding:20px;
+border-radius:15px;
+}
+
+.right{
+flex:2;
+background:#FFF8E7;
+padding:20px;
+border-radius:15px;
+}
+
+h2{
+color:#4A00E0;
+margin-bottom:10px;
+border-bottom:3px solid #4A00E0;
+padding-bottom:5px;
+}
+
+ul{
+margin-left:20px;
+margin-top:10px;
+}
+
+table{
+width:100%;
+margin-top:15px;
+border-collapse:collapse;
+}
+
+table,th,td{
+border:2px solid #4A00E0;
+}
+
+th{
+background:#4A00E0;
+color:white;
+padding:10px;
+}
+
+td{
+padding:10px;
+text-align:center;
+}
+
+.contact{
+margin-top:20px;
+background:#E3F2FD;
+padding:15px;
+border-radius:10px;
+}
+
+.footer{
+background:#003366;
+color:white;
+text-align:center;
+padding:15px;
+}
+
+/* Responsive Design */
+
+@media(max-width:768px){
+
+.content{
+flex-direction:column;
+}
+
+.header img{
+width:500px;
+height:500px;
+}
+
+h1{
+font-size:28px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<img src="c:\Users\tgjai\OneDrive\Pictures\IMG_20240512_091540.jpg" alt="Student">
+
+<h1>T.G. Jaikousick</h1>
+
+<p>B.Tech Information Technology Student</p>
+
+</div>
+
+<div class="content">
+
+<div class="left">
+
+<h2>About Me</h2>
+
+<p>
+I am an enthusiastic IT student with an interest in Web Development,
+Artificial Intelligence, and Cyber Security.
+</p>
+
+<div class="contact">
+
+<h2>Contact</h2>
+
+<p><b>Email:</b> jaikousick@example.com</p>
+
+<p><b>Phone:</b> +91 9876543210</p>
+
+<p><b>Location:</b> Chennai</p>
+
+</div>
+
+</div>
+
+<div class="right">
+
+<h2>Skills</h2>
+
+<ul>
+<li>HTML5</li>
+<li>CSS3</li>
+<li>JavaScript</li>
+<li>Java</li>
+<li>Python</li>
+<li>MySQL</li>
+</ul>
+
+<h2 style="margin-top:20px;">Academic Details</h2>
+
+<table>
+
+<tr>
+<th>Subject</th>
+<th>Marks</th>
+</tr>
+
+<tr>
+<td>Web Technology</td>
+<td>95</td>
+</tr>
+
+<tr>
+<td>Java Programming</td>
+<td>90</td>
+</tr>
+
+<tr>
+<td>Database Management</td>
+<td>92</td>
+</tr>
+
+<tr>
+<td>Computer Networks</td>
+<td>94</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+Designed by T.G. Jaikousick © 2026
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart & Billing System</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#00B4DB,#0083B0);
+padding:30px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.3);
+}
+
+h1{
+text-align:center;
+color:#0D47A1;
+margin-bottom:20px;
+}
+
+form{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+select,input{
+padding:12px;
+border:2px solid #1976D2;
+border-radius:8px;
+font-size:16px;
+}
+
+button{
+grid-column:span 2;
+padding:12px;
+background:#1976D2;
+color:white;
+border:none;
+font-size:18px;
+border-radius:10px;
+cursor:pointer;
+}
+
+button:hover{
+background:#0D47A1;
+}
+
+table{
+width:100%;
+margin-top:25px;
+border-collapse:collapse;
+}
+
+th{
+background:#1976D2;
+color:white;
+padding:12px;
+}
+
+td{
+padding:10px;
+text-align:center;
+border:1px solid #ddd;
+}
+
+.summary{
+margin-top:20px;
+background:#E3F2FD;
+padding:20px;
+border-radius:10px;
+font-size:18px;
+line-height:1.8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Product Shopping Cart & Billing System</h1>
+
+<form>
+
+<select id="product">
+
+<option value="">Select Product</option>
+<option value="Laptop">Laptop</option>
+<option value="Mobile">Mobile</option>
+<option value="Headphones">Headphones</option>
+<option value="Keyboard">Keyboard</option>
+
+</select>
+
+<input type="number" id="price" placeholder="Price">
+
+<input type="number" id="quantity" placeholder="Quantity">
+
+<button type="button" onclick="addProduct()">Add Product</button>
+
+</form>
+
+<div id="bill"></div>
+
+</div>
+
+<script>
+
+let cart=[];
+
+function addProduct(){
+
+let product=document.getElementById("product").value;
+let price=Number(document.getElementById("price").value);
+let quantity=Number(document.getElementById("quantity").value);
+
+if(product=="" || price<=0 || quantity<=0){
+
+alert("Enter valid product details");
+
+return;
+
+}
+
+let item={
+
+product:product,
+price:price,
+quantity:quantity,
+amount:price*quantity
+
+};
+
+cart.push(item);
+
+displayBill();
+
+}
+
+function displayBill(){
+
+let html=`
+
+<table>
+
+<tr>
+
+<th>Product</th>
+<th>Price</th>
+<th>Quantity</th>
+<th>Amount</th>
+
+</tr>
+
+`;
+
+let subtotal=0;
+
+cart.forEach(function(item){
+
+subtotal+=item.amount;
+
+html+=`
+
+<tr>
+
+<td>${item.product}</td>
+
+<td>₹${item.price}</td>
+
+<td>${item.quantity}</td>
+
+<td>₹${item.amount}</td>
+
+</tr>
+
+`;
+
+});
+
+html+="</table>";
+
+let discount=0;
+
+if(subtotal>=5000)
+
+discount=subtotal*0.10;
+
+let tax=(subtotal-discount)*0.05;
+
+let total=subtotal-discount+tax;
+
+html+=`
+
+<div class="summary">
+
+<b>Subtotal :</b> ₹${subtotal}<br>
+
+<b>Discount (10%) :</b> ₹${discount.toFixed(2)}<br>
+
+<b>GST (5%) :</b> ₹${tax.toFixed(2)}<br>
+
+<b>Total Amount :</b> ₹${total.toFixed(2)}
+
+</div>
+
+`;
+
+document.getElementById("bill").innerHTML=html;
+
+}
+
+</script>
+
+</body>
+
+</html>

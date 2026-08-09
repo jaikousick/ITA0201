@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive College Website</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#f4f7fb;
+}
+
+/* Header */
+
+header{
+background:linear-gradient(90deg,#0F2027,#203A43,#2C5364);
+color:white;
+padding:25px;
+text-align:center;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+header h1{
+font-size:35px;
+}
+
+/* Navigation */
+
+nav{
+display:flex;
+justify-content:center;
+background:#1565C0;
+flex-wrap:wrap;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+padding:18px 25px;
+font-size:18px;
+transition:.3s;
+}
+
+nav a:hover{
+background:#0D47A1;
+}
+
+/* Hero Section */
+
+.hero{
+background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1400&q=80");
+background-size:cover;
+background-position:center;
+height:350px;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+font-size:40px;
+font-weight:bold;
+text-shadow:2px 2px 5px black;
+}
+
+/* Main Grid */
+
+.container{
+display:grid;
+grid-template-columns:3fr 1fr;
+gap:20px;
+padding:30px;
+}
+
+/* Main Content */
+
+main{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+article{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+article img{
+width:100%;
+border-radius:10px;
+margin-top:10px;
+}
+
+/* Sidebar */
+
+aside{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+aside ul{
+margin-top:10px;
+padding-left:20px;
+}
+
+/* Courses */
+
+.course-grid{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+margin-top:15px;
+}
+
+.course{
+flex:1;
+min-width:180px;
+background:#1976D2;
+color:white;
+padding:20px;
+border-radius:12px;
+text-align:center;
+}
+
+/* Footer */
+
+footer{
+background:#0F2027;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:20px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.container{
+grid-template-columns:1fr;
+}
+
+.hero{
+font-size:28px;
+height:250px;
+}
+
+nav{
+flex-direction:column;
+}
+
+nav a{
+text-align:center;
+border-top:1px solid white;
+}
+
+.course-grid{
+flex-direction:column;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>SIMATS Engineering</h1>
+
+<p>Empowering Students for a Better Future</p>
+
+</header>
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Courses</a>
+<a href="#">Admissions</a>
+<a href="#">Contact</a>
+
+</nav>
+
+<section class="hero">
+
+Welcome to Our College
+
+</section>
+
+<div class="container">
+
+<main>
+
+<article>
+
+<h2>About Our College</h2>
+
+<p>
+SIMATS Engineering College offers quality education with experienced faculty,
+modern laboratories, digital classrooms, and excellent placement opportunities.
+</p>
+
+<img src=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDDJbnEgceR-NNlEAtGdnGZk_Ocqt2_B4ycp65gaQ68g&s=10>
+
+</article>
+
+<article>
+
+<h2>Popular Courses</h2>
+
+<div class="course-grid">
+
+<div class="course">
+<h3>B.Tech IT</h3>
+</div>
+
+<div class="course">
+<h3>CSE</h3>
+</div>
+
+<div class="course">
+<h3>AI & DS</h3>
+</div>
+
+</div>
+
+</article>
+
+</main>
+
+<aside>
+
+<h2>Latest News</h2>
+
+<ul>
+<li>Admissions Open 2026</li>
+<li>Campus Placement Drive</li>
+<li>Technical Symposium</li>
+<li>Hackathon Registration</li>
+<li>Sports Meet</li>
+</ul>
+
+</aside>
+
+</div>
+
+<footer>
+
+<h3>SIMATS Engineering</h3>
+
+<p>Email : info@abccollege.edu</p>
+
+<p>Phone : +91 9876543210</p>
+
+<p>© 2026 All Rights Reserved</p>
+
+</footer>
+
+</body>
+</html>

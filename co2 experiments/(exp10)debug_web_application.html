@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Debug and Correct CSS & JavaScript</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#2193b0,#6dd5ed);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.container{
+
+width:450px;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,.3);
+text-align:center;
+
+}
+
+h1{
+color:#1565C0;
+margin-bottom:20px;
+}
+
+input{
+
+width:100%;
+padding:12px;
+margin:10px 0;
+font-size:16px;
+border:2px solid #1565C0;
+border-radius:8px;
+
+}
+
+button{
+
+padding:12px 25px;
+background:#1565C0;
+color:white;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#0D47A1;
+
+}
+
+#result{
+
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+color:green;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Student Percentage Calculator</h1>
+
+<input type="number" id="mark1" placeholder="Enter Mark 1">
+
+<input type="number" id="mark2" placeholder="Enter Mark 2">
+
+<input type="number" id="mark3" placeholder="Enter Mark 3">
+
+<button onclick="calculate()">Calculate</button>
+
+<h2 id="result"></h2>
+
+</div>
+
+<script>
+
+function calculate(){
+
+try{
+
+debugger;
+
+let m1=Number(document.getElementById("mark1").value);
+let m2=Number(document.getElementById("mark2").value);
+let m3=Number(document.getElementById("mark3").value);
+
+console.log("Mark1 :",m1);
+console.log("Mark2 :",m2);
+console.log("Mark3 :",m3);
+
+if(isNaN(m1)||isNaN(m2)||isNaN(m3)){
+
+throw "Please enter valid marks";
+
+}
+
+let total=m1+m2+m3;
+
+let percentage=total/3;
+
+document.getElementById("result").innerHTML=
+"Percentage : "+percentage.toFixed(2)+"%";
+
+console.log("Percentage :",percentage);
+
+}
+
+catch(error){
+
+console.log(error);
+
+document.getElementById("result").style.color="red";
+
+document.getElementById("result").innerHTML=error;
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
