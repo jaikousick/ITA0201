@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<students>
+
+    <student>
+
+        <rollno>101</rollno>
+        <name>T.G. Jaikousick</name>
+        <department>Information Technology</department>
+        <year>III</year>
+        <email>jaikousick@gmail.com</email>
+        <mobile>9876543210</mobile>
+
+    </student>
+
+    <student>
+
+        <rollno>102</rollno>
+        <name>Arun Kumar</name>
+        <department>Computer Science</department>
+        <year>III</year>
+        <email>arun@gmail.com</email>
+        <mobile>9876543211</mobile>
+
+    </student>
+
+    <student>
+
+        <rollno>103</rollno>
+        <name>Priya</name>
+        <department>Artificial Intelligence</department>
+        <year>II</year>
+        <email>priya@gmail.com</email>
+        <mobile>9876543212</mobile>
+
+    </student>
+
+</students>
+<?xml-stylesheet type="text/css" href="student.css"?>

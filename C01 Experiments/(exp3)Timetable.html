@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Class Timetable</title>
+
+    <style>
+        body{
+            margin:0;
+            padding:20px;
+            font-family:Arial, Helvetica, sans-serif;
+            background:linear-gradient(135deg,#6a11cb,#2575fc);
+        }
+
+        h1{
+            text-align:center;
+            color:white;
+            margin-bottom:20px;
+        }
+
+        table{
+            width:90%;
+            margin:auto;
+            border:3px solid white;
+            border-collapse:separate;
+            border-spacing:4px;      /* cellspacing */
+            background:white;
+            border-radius:12px;
+            box-shadow:0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        caption{
+            caption-side:top;
+            font-size:28px;
+            font-weight:bold;
+            color:white;
+            padding:15px;
+        }
+
+        th{
+            background:#1565C0;
+            color:white;
+            padding:15px;            /* cellpadding */
+            font-size:18px;
+        }
+
+        td{
+            padding:15px;            /* cellpadding */
+            text-align:center;
+            font-weight:bold;
+            border-radius:8px;
+        }
+
+        tr:hover td{
+            background:#FFF9C4;
+            transition:0.4s;
+        }
+
+        .monday{
+            background:#BBDEFB;
+        }
+
+        .tuesday{
+            background:#C8E6C9;
+        }
+
+        .wednesday{
+            background:#FFE0B2;
+        }
+
+        .thursday{
+            background:#F8BBD0;
+        }
+
+        .friday{
+            background:#D1C4E9;
+        }
+
+        .lunch{
+            background:#FF7043;
+            color:white;
+            font-size:18px;
+        }
+
+        .lab{
+            background:#66BB6A;
+            color:white;
+        }
+
+        .project{
+            background:#8E24AA;
+            color:white;
+        }
+
+        .sports{
+            background:#FFA726;
+            color:white;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>📚 Weekly Class Timetable</h1>
+
+<table border="2" cellpadding="12" cellspacing="4">
+
+<caption>B.Tech Information Technology - Semester Timetable</caption>
+
+<tr>
+<th>Day</th>
+<th>9:00-10:00</th>
+<th>10:00-11:00</th>
+<th>11:00-12:00</th>
+<th>12:00-1:00</th>
+<th>1:00-2:00</th>
+<th>2:00-3:00</th>
+<th>3:00-4:00</th>
+</tr>
+
+<tr class="monday">
+<td><b>Monday</b></td>
+<td>Mathematics</td>
+<td>DBMS</td>
+<td>Operating Systems</td>
+<td rowspan="5" class="lunch"><b>LUNCH</b></td>
+<td colspan="2" class="lab">Web Technology Lab</td>
+<td class="sports">Sports</td>
+</tr>
+
+<tr class="tuesday">
+<td><b>Tuesday</b></td>
+<td>Computer Networks</td>
+<td>Python</td>
+<td>DBMS</td>
+<td>Web Technology</td>
+<td>Library</td>
+<td>Placement</td>
+</tr>
+
+<tr class="wednesday">
+<td><b>Wednesday</b></td>
+<td colspan="2" class="lab">Computer Programming Lab</td>
+<td>English</td>
+<td>Operating Systems</td>
+<td>Computer Networks</td>
+<td>Seminar</td>
+</tr>
+
+<tr class="thursday">
+<td><b>Thursday</b></td>
+<td>Python</td>
+<td>Mathematics</td>
+<td>DBMS</td>
+<td colspan="2" class="project">Mini Project</td>
+<td class="sports">Sports</td>
+</tr>
+
+<tr class="friday">
+<td><b>Friday</b></td>
+<td>Web Technology</td>
+<td>Python Lab</td>
+<td>Computer Networks</td>
+<td>DBMS</td>
+<td>Operating Systems</td>
+<td>Mentoring</td>
+</tr>
+
+</table>
+
+</body>
+</html>
