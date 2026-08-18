@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vertex University | Event Registration Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- ================= HEADER ================= -->
+<!-- Internal CSS demonstrated here for the header section, as required -->
+<style>
+/* Internal CSS: applied only to this clearly identified header section */
+header.site-header {
+letter-spacing: 0.3px;
+}
+header.site-header .brand-name {
+font-style: italic;
+}
+</style>
+<header class="site-header" id="top">
+<div class="header-inner">
+<div class="brand">
+<span class="brand-name">Vertex University</span>
+</div>
+<p class="portal-title">Event Registration Portal</p>
+<nav class="main-nav" aria-label="Primary navigation">
+<ul>
+<li><a href="#top">Home</a></li>
+<li><a href="#events">Events</a></li>
+<li><a href="#register">Register</a></li>
+<li><a href="#footer">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<!-- ================= HERO SECTION ================= -->
+<section class="hero">
+<div class="hero-content">
+<h1>Register for Vertex Fest 2026</h1>
+<p class="hero-sub">Technical Workshops &bull; Hackathons &bull; Cultural Events &bull; Placement Training</p>
+<!-- Inline CSS demonstrated on this one small element only, as required -->
+<p style="color:#ffd166; font-weight:600;">Campaign Period: 10 Aug 2026 &ndash; 25 Aug 2026</p>
+<a href="#events" class="cta-btn">Explore Events</a>
+</div>
+</section>
+<!-- ================= EVENT CATALOGUE ================= -->
+<section class="events" id="events">
+<h2 class="section-title">Upcoming Events</h2>
+<div class="event-grid">
+<!-- Event Card 1 -->
+<article class="event-card" data-category="technical">
+<span class="badge badge-open">Open</span>
+<h3>National Hackathon 2026</h3>
+<p class="event-meta">Category: Technical &nbsp;|&nbsp; 14 Aug 2026, 9:00 AM</p>
+Appendix - Source Code Listing (index.html / style.css)
+Page 10
+<p class="event-venue">Venue: Innovation Block, Lab 4</p>
+<p class="event-desc">A 24-hour coding marathon for teams to build solutions around smart-campus problem
+statements.</p>
+<a href="#register" class="reg-btn">Register</a>
+</article>
+<!-- Event Card 2 -->
+<article class="event-card" data-category="cultural">
+<span class="badge badge-open">Open</span>
+<h3>Rhythms &ndash; Cultural Night</h3>
+<p class="event-meta">Category: Cultural &nbsp;|&nbsp; 16 Aug 2026, 6:00 PM</p>
+<p class="event-venue">Venue: Main Auditorium</p>
+<p class="event-desc">An evening of music, dance and drama performances by students across departments.</p>
+<a href="#register" class="reg-btn">Register</a>
+</article>
+<!-- Event Card 3 -->
+<article class="event-card" data-category="placement">
+<span class="badge badge-closing">Closing Soon</span>
+<h3>Placement Readiness Bootcamp</h3>
+<p class="event-meta">Category: Placement &nbsp;|&nbsp; 19 Aug 2026, 10:00 AM</p>
+<p class="event-venue">Venue: Seminar Hall 2</p>
+<p class="event-desc">Resume building, aptitude practice and mock interview sessions led by industry
+mentors.</p>
+<a href="#register" class="reg-btn">Register</a>
+</article>
+<!-- Event Card 4 -->
+<article class="event-card" data-category="sports">
+<span class="badge badge-open">Open</span>
+<h3>Inter-Department Cricket Cup</h3>
+<p class="event-meta">Category: Sports &nbsp;|&nbsp; 22 Aug 2026, 4:00 PM</p>
+<p class="event-venue">Venue: University Ground</p>
+<p class="event-desc">A knockout cricket tournament between department teams, open to all students.</p>
+<a href="#register" class="reg-btn">Register</a>
+</article>
+</div>
+</section>
+<!-- ================= REGISTRATION FORM ================= -->
+<section class="registration" id="register">
+<h2 class="section-title">Event Registration Form</h2>
+<form class="reg-form" action="#" method="post">
+<div class="form-row">
+<label for="stuName">Student Name</label>
+<input type="text" id="stuName" name="stuName" placeholder="Enter your full name" required>
+</div>
+<div class="form-row">
+<label for="regNo">Register Number</label>
+<input type="text" id="regNo" name="regNo" placeholder="e.g. 192421367" required>
+</div>
+<div class="form-row">
+<label for="dept">Department</label>
+<select id="dept" name="dept" required>
+<option value="">Select department</option>
+<option value="cse">Computer Science &amp; Engineering</option>
+<option value="ece">Electronics &amp; Communication</option>
+<option value="mech">Mechanical Engineering</option>
+Appendix - Source Code Listing (index.html / style.css)
+Page 11
+<option value="civil">Civil Engineering</option>
+</select>
+</div>
+<div class="form-row">
+<label for="email">Email Address</label>
+<input type="email" id="email" name="email" placeholder="you@example.com" required>
+</div>
+<div class="form-row">
+<label for="eventSelect">Select Event</label>
+<select id="eventSelect" name="eventSelect" required>
+<option value="">Choose an event</option>
+<option value="hackathon">National Hackathon 2026</option>
+<option value="cultural">Rhythms &ndash; Cultural Night</option>
+<option value="placement">Placement Readiness Bootcamp</option>
+<option value="sports">Inter-Department Cricket Cup</option>
+</select>
+</div>
+<button type="submit" class="submit-btn">Submit Registration</button>
+</form>
+</section>
+<!-- Fixed help button demonstrates fixed positioning -->
+<button class="help-btn" aria-label="Need help">?</button>
+<!-- ================= FOOTER ================= -->
+<footer id="footer">
+<div class="footer-inner">
+<div>
+<h4>Contact Us</h4>
+<p>Vertex University, Chennai, Tamil Nadu</p>
+<p>Email: events@vertexuniversity.edu &nbsp;|&nbsp; Phone: +91 98765 43210</p>
+</div>
+<div>
+<h4>Useful Links</h4>
+<ul class="footer-links">
+<li><a href="#top">Home</a></li>
+<li><a href="#events">Events</a></li>
+<li><a href="#register">Registration</a></li>
+</ul>
+</div>
+</div>
+<p class="copyright">&copy; 2026 Vertex University. All rights reserved.</p>
+</footer>
+</body>
+</htm
